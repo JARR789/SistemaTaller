@@ -1,0 +1,2 @@
+<template><v-text-field v-model="model" :label="label" :type="show ? 'text':'password'" :rules="rules" :append-inner-icon="show?'mdi-eye-off':'mdi-eye'" @click:append-inner="show=!show" autocomplete="new-password"/></template>
+<script setup>import { ref } from 'vue'; defineProps({ label:{type:String,default:'Contraseña'} }); const model=defineModel(); const show=ref(false); const rules=[v=>!!v||'La contraseña es obligatoria',v=>v?.length>=10||'Mínimo 10 caracteres',v=>/[A-Z]/.test(v)&&/[a-z]/.test(v)&&/\d/.test(v)||'Incluye mayúscula, minúscula y número']</script>
